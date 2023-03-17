@@ -53,6 +53,18 @@ services:
         published: ${HTTP3_PORT:-443}
         protocol: udp
 
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
