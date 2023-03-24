@@ -1,11 +1,4 @@
 version: "3.4"
-
-
-networks:
-  app-tier:
-    driver: bridge
-
-
 services:
 
   php-fpm:
