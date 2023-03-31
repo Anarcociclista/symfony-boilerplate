@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install -y git
 COPY --from=composer:2.5 /usr/bin/composer /usr/local/bin/composer
+
+RUN useradd --user-group --create-home developer
+USER developer
 #COPY . /var/www/html
 # Create the non-root runtime user.  It does not need a
 # specific uid, shell, home directory, or other settings.
