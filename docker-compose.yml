@@ -1,15 +1,16 @@
 version: "3.4"
 services:
 
-  php-fpm:
-    image: 'bitnami/php-fpm:latest'
+  php:
+    build:
+      context: ./docker
+      target: php
     volumes:
-      - .:/app
-
+      - .:/var/www/html
   web:
     image: nginx
     links:
-      - php-fpm
+      - php
     volumes:
       - .:/app
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -18,7 +19,6 @@ services:
     ports:
       - "8000:80"
       - "443:443"
-
   db:
     image: mariadb
     restart: always
