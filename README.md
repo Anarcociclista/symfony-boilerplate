@@ -18,3 +18,9 @@ $ composer install
 ```
 
 Your boilerplate is ready
+
+Now add:
+```
+127.0.0.1 symfony.test
+```
+inside your /etc/hosts file and enjoy

@@ -1,4 +1,4 @@
-FROM php:8.2-fpm AS php
+FROM php:8.2-fpm AS php-fpm
 
 RUN apt-get update && apt-get install -y \
 		libfreetype6-dev \
@@ -14,6 +14,3 @@ COPY --from=composer:2.5 /usr/bin/composer /usr/local/bin/composer
 
 RUN useradd --user-group --create-home developer
 USER developer
-#COPY . /var/www/html
-# Create the non-root runtime user.  It does not need a
-# specific uid, shell, home directory, or other settings.
