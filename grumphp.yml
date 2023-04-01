@@ -1,0 +1,10 @@
+grumphp:
+  process_timeout: 120
+  tasks:
+    phpmd:
+      ruleset: ['test/conf/phpmd.xml']
+    phpcs:
+      standard: PSR2
+    phpstan:
+      level: max
+      memory_limit: "-1"
