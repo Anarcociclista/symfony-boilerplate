@@ -11,6 +11,8 @@ services:
       - ./docker/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
     ports:
       - "9000:9000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
   web:
     image: nginx
     links:
