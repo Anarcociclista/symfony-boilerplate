@@ -15,7 +15,8 @@ services:
       - host.docker.internal:host-gateway
   web:
     image: nginx
-
+    env_file:
+      - .env-docker
     links:
       - php-fpm
     volumes:
