@@ -28,13 +28,20 @@ services:
       - 8000:80
       - 443:443
   db:
-    image: mariadb
+    image: mariadb:11
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: password
+    volumes:
+      - dbdata:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+volumes:
+  dbdata:
